@@ -3,14 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Кодовая школа — бесплатная консультация</title>
+    <title>Кодейка — бесплатная консультация</title>
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/src/style.css" />
     <script type="module" src="/src/main.ts"></script>
   </head>
   <body class="bg-slate-50 text-slate-900 antialiased">
     <details id="stand" class="bg-slate-900 text-slate-100 text-sm" open>
       <summary class="cursor-pointer px-4 py-2 font-medium select-none">
-        Стенд Хекслета · подключение функции
+        Стенд · подключение функции
         <span id="stand-status" class="ml-2 text-slate-400">не подключена</span>
       </summary>
       <form
@@ -41,10 +42,8 @@
     <header class="border-b border-slate-200 bg-white">
       <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
         <a href="#" class="flex items-center gap-2 text-lg font-bold">
-          <span class="grid size-8 place-items-center rounded-lg bg-indigo-600 font-mono text-white"
-            >{}</span
-          >
-          Кодовая школа
+          <img src="/logo.svg" alt="" class="size-9" />
+          Кодейка
         </a>
         <nav class="flex gap-6 text-sm text-slate-600">
           <a href="#consultants" class="hover:text-slate-900">Консультанты</a>
@@ -73,20 +72,27 @@
               >Записаться</a
             >
           </div>
-          <ul class="grid gap-4">
-            <li class="rounded-xl bg-white p-5 shadow-sm">
-              <p class="font-semibold">60 минут</p>
-              <p class="text-slate-600">Видеозвонок один на один с наставником</p>
-            </li>
-            <li class="rounded-xl bg-white p-5 shadow-sm">
-              <p class="font-semibold">Будни, с 10:00 до 19:00 по Москве</p>
-              <p class="text-slate-600">Последняя консультация начинается в 18:00</p>
-            </li>
-            <li class="rounded-xl bg-white p-5 shadow-sm">
-              <p class="font-semibold">Приглашение в календарь</p>
-              <p class="text-slate-600">Сразу после записи на вашу почту</p>
-            </li>
-          </ul>
+          <div class="grid gap-6">
+            <img
+              src="/mascot.svg"
+              alt="Кот-кодер Кодейки за ноутбуком"
+              class="mx-auto w-48 md:w-56"
+            />
+            <ul class="grid gap-4">
+              <li class="rounded-xl bg-white p-5 shadow-sm">
+                <p class="font-semibold">60 минут</p>
+                <p class="text-slate-600">Видеозвонок один на один с наставником</p>
+              </li>
+              <li class="rounded-xl bg-white p-5 shadow-sm">
+                <p class="font-semibold">Будни, с 10:00 до 19:00 по Москве</p>
+                <p class="text-slate-600">Последняя консультация начинается в 18:00</p>
+              </li>
+              <li class="rounded-xl bg-white p-5 shadow-sm">
+                <p class="font-semibold">Приглашение в календарь</p>
+                <p class="text-slate-600">Сразу после записи на вашу почту</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -152,8 +158,7 @@
     </main>
 
     <footer class="border-t border-slate-200 py-8 text-center text-sm text-slate-500">
-      Учебный стенд проекта «Автоматизация записи на консультацию» программы «ИИ-автоматизатор»
-      Хекслета. Школа вымышленная.
+      © Кодейка. Школа вымышленная, сайт служит учебным стендом.
     </footer>
   </body>
 </html>
