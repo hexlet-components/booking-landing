@@ -4,15 +4,31 @@ hk = "2"
 jactionlint = "latest"
 lychee = "latest"
 node = "26"
+osv-scanner = "latest"
 "npm:@commitlint/cli" = "latest"
 "npm:@commitlint/config-conventional" = "latest"
 pkl = "latest"
 rumdl = "latest"
 typos = "latest"
 
+# Задачи проекта живут здесь, Makefile только проксирует make <задача> в mise run.
+# Первая настройка (AGENTS.md) ставит зависимости стека в setup перед hk install
+# и заполняет test.
 [tasks.setup]
 description = "Поставить зависимости и git-хуки"
-run = ["hk install"]
+run = ["npm ci", "hk install"]
+
+[tasks.test]
+description = "Тесты стека"
+run = "npm test"
+
+[tasks.build]
+description = "Собрать сайт в dist/"
+run = "npm run build"
+
+[tasks.dev]
+description = "Локальный сервер с перезагрузкой"
+run = "npm run dev"
 
 [tasks.check]
 description = "Все проверки, тот же набор, что гоняет CI"

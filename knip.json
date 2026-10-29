@@ -1,0 +1,5 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "ignore": ["commitlint.config.mjs"],
+  "ignoreDependencies": ["oxfmt", "oxlint"]
+}

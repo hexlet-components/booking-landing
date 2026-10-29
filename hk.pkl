@@ -9,9 +9,31 @@ local fast = new Mapping<String, Step> {
   ["rumdl"] = Builtins.rumdl
   ["typos"] = Builtins.typos
   ["jactionlint"] = Builtins.jactionlint
+  ["oxfmt"] {
+    glob = List("**/*.ts", "**/*.html", "**/*.css", "**/*.json")
+    exclude = List("package-lock.json")
+    check = "npx oxfmt --check {{files}}"
+    fix = "npx oxfmt {{files}}"
+  }
+  // Oxlint по умолчанию выходит с 0 на предупреждениях.
+  ["oxlint"] {
+    glob = List("**/*.ts")
+    check = "npx oxlint --deny-warnings {{files}}"
+  }
+  ["tsc"] {
+    glob = List("**/*.ts", "tsconfig.json")
+    check = "npx tsc --noEmit"
+  }
 }
 
 local all = (fast) {
+  ["knip"] {
+    check = "npx knip"
+  }
+  ["osv-scanner"] {
+    glob = List("package-lock.json")
+    check = "osv-scanner scan --lockfile package-lock.json"
+  }
   ["lychee"] {
     glob = List("**/*.md")
     check = "lychee --config lychee.toml --no-progress {{files}}"

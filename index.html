@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Кодовая школа — бесплатная консультация</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased">
+    <details id="stand" class="bg-slate-900 text-slate-100 text-sm" open>
+      <summary class="cursor-pointer px-4 py-2 font-medium select-none">
+        Стенд Хекслета · подключение функции
+        <span id="stand-status" class="ml-2 text-slate-400">не подключена</span>
+      </summary>
+      <form
+        id="connect"
+        class="mx-auto flex max-w-5xl flex-col gap-3 px-4 pb-4 sm:flex-row sm:items-end"
+      >
+        <label class="flex-1">
+          <span class="mb-1 block text-slate-300">Адрес функции</span>
+          <input
+            name="url"
+            type="url"
+            required
+            placeholder="https://functions.yandexcloud.net/…"
+            class="w-full rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-none"
+          />
+        </label>
+        <button class="rounded-md bg-sky-500 px-4 py-2 font-medium text-white hover:bg-sky-400">
+          Проверить
+        </button>
+      </form>
+      <div
+        id="connect-notice"
+        class="mx-auto max-w-5xl px-4 pb-4 empty:hidden"
+        aria-live="polite"
+      ></div>
+    </details>
+
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+        <a href="#" class="flex items-center gap-2 text-lg font-bold">
+          <span class="grid size-8 place-items-center rounded-lg bg-indigo-600 font-mono text-white"
+            >{}</span
+          >
+          Кодовая школа
+        </a>
+        <nav class="flex gap-6 text-sm text-slate-600">
+          <a href="#consultants" class="hover:text-slate-900">Консультанты</a>
+          <a href="#booking" class="hover:text-slate-900">Записаться</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="bg-gradient-to-b from-white to-indigo-50">
+        <div class="mx-auto grid max-w-5xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center">
+          <div>
+            <p class="mb-3 text-sm font-semibold tracking-wide text-indigo-600 uppercase">
+              Бесплатная консультация
+            </p>
+            <h1 class="text-4xl font-bold leading-tight md:text-5xl">
+              Разберём, с чего начать путь в&nbsp;IT
+            </h1>
+            <p class="mt-5 text-lg text-slate-600">
+              Час с практикующим наставником. Обсудим ваш опыт, подберём направление и составим план
+              обучения.
+            </p>
+            <a
+              href="#booking"
+              class="mt-8 inline-block rounded-lg bg-indigo-600 px-6 py-3 font-semibold text-white shadow-sm hover:bg-indigo-500"
+              >Записаться</a
+            >
+          </div>
+          <ul class="grid gap-4">
+            <li class="rounded-xl bg-white p-5 shadow-sm">
+              <p class="font-semibold">60 минут</p>
+              <p class="text-slate-600">Видеозвонок один на один с наставником</p>
+            </li>
+            <li class="rounded-xl bg-white p-5 shadow-sm">
+              <p class="font-semibold">Будни, с 10:00 до 19:00 по Москве</p>
+              <p class="text-slate-600">Последняя консультация начинается в 18:00</p>
+            </li>
+            <li class="rounded-xl bg-white p-5 shadow-sm">
+              <p class="font-semibold">Приглашение в календарь</p>
+              <p class="text-slate-600">Сразу после записи на вашу почту</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="consultants" class="mx-auto max-w-5xl px-4 py-16">
+        <h2 class="text-3xl font-bold">Наставники</h2>
+        <p class="mt-2 text-slate-600">Консультанта по выбранной теме подберём автоматически.</p>
+        <ul id="consultant-list" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></ul>
+      </section>
+
+      <section id="booking" class="bg-white">
+        <div class="mx-auto max-w-xl px-4 py-16">
+          <h2 class="text-3xl font-bold">Запись на консультацию</h2>
+          <form id="booking-form" class="mt-8 grid gap-5">
+            <label>
+              <span class="mb-1 block text-sm font-medium">Имя</span>
+              <input
+                name="name"
+                required
+                autocomplete="name"
+                class="w-full rounded-md border border-slate-300 px-3 py-2 focus:border-indigo-500 focus:outline-none"
+              />
+            </label>
+            <label>
+              <span class="mb-1 block text-sm font-medium">Почта</span>
+              <input
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+                class="w-full rounded-md border border-slate-300 px-3 py-2 focus:border-indigo-500 focus:outline-none"
+              />
+            </label>
+            <label>
+              <span class="mb-1 block text-sm font-medium">Тема</span>
+              <select
+                name="topic"
+                id="topic"
+                class="w-full rounded-md border border-slate-300 bg-white px-3 py-2 focus:border-indigo-500 focus:outline-none"
+              ></select>
+            </label>
+            <label>
+              <span class="mb-1 block text-sm font-medium">Время по Москве</span>
+              <input
+                name="time"
+                type="datetime-local"
+                required
+                class="w-full rounded-md border border-slate-300 px-3 py-2 focus:border-indigo-500 focus:outline-none"
+              />
+            </label>
+            <button
+              id="booking-submit"
+              class="rounded-lg bg-indigo-600 px-6 py-3 font-semibold text-white hover:bg-indigo-500 disabled:cursor-not-allowed disabled:bg-slate-300"
+            >
+              Записаться
+            </button>
+            <p id="booking-hint" class="text-sm text-slate-500">
+              Подключите функцию в тёмной полосе сверху страницы.
+            </p>
+          </form>
+          <div id="booking-notice" class="mt-6 empty:hidden" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200 py-8 text-center text-sm text-slate-500">
+      Учебный стенд проекта «Автоматизация записи на консультацию» программы «ИИ-автоматизатор»
+      Хекслета. Школа вымышленная.
+    </footer>
+  </body>
+</html>

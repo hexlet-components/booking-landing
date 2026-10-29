@@ -1,2 +1,4 @@
 
 .lycheecache
+node_modules
+dist

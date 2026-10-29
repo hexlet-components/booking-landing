@@ -1,8 +1,7 @@
-setup:
-	@echo "TODO: add setup"
+# Тонкий прокси: make <задача> запускает mise run <задача>. Задачи живут в mise.toml.
+%: FORCE
+	@mise run $@
 
-test:
-	@echo "TODO: add tests"
-
-lint:
-	@echo "TODO: add lint"
+# Без этого правила make пытается собрать сам Makefile через прокси.
+Makefile: ;
+FORCE: ;
