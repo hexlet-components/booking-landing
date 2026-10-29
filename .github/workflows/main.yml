@@ -10,9 +10,10 @@ on:
       - main
   workflow_dispatch:
 
+# Выкладку на Pages не прерываем: новая сборка ждёт, пока закончится текущая.
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 permissions: {}
 
